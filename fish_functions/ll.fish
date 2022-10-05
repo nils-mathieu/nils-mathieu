@@ -1,3 +1,3 @@
-function ll --wraps='exa -lha' --description 'alias ll exa -lha'
+function ll --wraps='exa -lha' --description 'list files'
   exa -lha $argv; 
 end
