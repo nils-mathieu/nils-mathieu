@@ -20,7 +20,7 @@ end
 
 function read_confirm
     set -l REPLY (read -P $argv[1] -n 1)
-    test -z $REPLY -o $REPLY = y -o $REPLY = Y
+    test -z "$REPLY" -o "$REPLY" = y -o "$REPLY" = Y
 end
 
 # Query the commands required to use this script.
@@ -36,7 +36,7 @@ if test -z "$BIN_DIR"
     set BIN_DIR ~/bin
 else
     # Parse an eventual initial starting ~
-    if test $BIN_DIR = '~'
+    if test "$BIN_DIR" = '~'
         set BIN_DIR ~
     else
         set BIN_DIR (string replace -r '^~/' ~/ $BIN_DIR)
@@ -63,6 +63,10 @@ if not command -q exa && read_confirm "install the `exa` utility (Y/n): "
     
     echo "`exa` installed at `$BIN_DIR/exa`"
     cd -
+    
+    # Install Completions
+    mkdir -p ~/.config/fish/completions
+    curl https://raw.githubusercontent.com/ogham/exa/master/completions/fish/exa.fish > ~/.config/fish/completions/exa.fish
 end
 
 # Installing HELIX
@@ -76,12 +80,15 @@ if not command -q hx && read_confirm "install the Helix editor (Y/n): "
     cargo build --release
     cp (cargo_target_dir)/release/hx $BIN_DIR/hx
     
+    set -l HELIX_RUNTIME_TMP
     if set -q HELIX_RUNTIME
-        set -l HELIX_RUNTIME ~/.config/helix/runtime
+        set HELIX_RUNTIME_TMP $HELIX_RUNTIME
+    else
+        set HELIX_RUNTIME_TMP ~/.config/helix/runtime
     end
-    
-    mkdir -p $HELIX_RUNTIME
-    cp runtime $HELIX_RUNTIME
+        
+    mkdir -p $HELIX_RUNTIME_TMP
+    cp runtime $HELIX_RUNTIME_TMP
 
     hx --grammar fetch
     hx --grammar build
@@ -108,6 +115,21 @@ if not command -q hx && read_confirm "install the Helix editor (Y/n): "
         cd -
         echo "`taplo` installed at `$BIN_DIR/taplo`"
     end
+end
+
+# Installing RIPGREP
+
+if not command -q rg && read_confirm "install the `ripgrep` utility (Y/n): "
+    git clone git@github.com:BurntSushi/ripgrep.git
+    or exit
+
+    cd ripgrep
+    
+    cargo build --release
+    cp (cargo_target_dir)/release/rg $BIN_DIR/rg
+    
+    echo "`ripgrep` installed at `$BIN_DIR/rg`"
+    cd -
 end
 
 rm -rf $INSTALL_DIR
