@@ -33,7 +33,8 @@ function fish_prompt
 		set_color normal
 	else
 		set_color --bold blue
-		prompt_pwd --dir-length 0
+		set -l fish_prompt_pwd_dir_length 0
+		prompt_pwd
 		set_color normal
 	end
 
