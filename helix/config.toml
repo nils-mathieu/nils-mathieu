@@ -1,9 +1,9 @@
-theme = "ayu_dark"
+theme = "doom_acario_dark"
 
 [editor]
 rulers = [100]
-idle-timeout = 200
-completion-trigger-len = 0
+idle-timeout = 0
+completion-trigger-len = 1
 
 [editor.cursor-shape]
 insert = "bar"
