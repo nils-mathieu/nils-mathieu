@@ -1,0 +1,76 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "modules-left": ["pulseaudio"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "cpu", "memory", "disk", "battery", "tray"],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1:web": "",
+            "2:code": "",
+            "3:term": "",
+            "4:work": "",
+            "5:music": "",
+            "6:docs": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%H:%M:%S}",
+        "tooltip": false
+    },
+    "cpu": {
+        "format": "CPU {usage}%"
+    },
+    "memory": {
+        "format": "MEM {}%"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "interval": 1,
+        "format-wifi": "",
+        "format-disconnected": "!",
+        "tooltip": true,
+        "tooltip-format-wifi": "{essid} ({bandwidthDownOctets})"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "phone": "",
+            "portable": "",
+            "default": ["", ""]
+        },
+        "on-scroll-up": "amixer -D pulse sset Master 1%+",
+        "on-scroll-down": "amixer -D pulse sset Master 1%-"
+    },
+    "disk": {
+        "interval": 5,
+        "format": "DISK {percentage_used}%",
+        "path": "/",
+        "tooltip-format": "{used}/{total}"
+    }
+}

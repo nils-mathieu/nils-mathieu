@@ -1,0 +1,26 @@
+* {
+    font-family: "Noto Sans"
+}
+
+#waybar {
+    background-color: transparent;
+    color: white;
+}
+
+.modules-right, .modules-middle, .modules-left {
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    border-radius: 100px;
+}
+
+#pulseaudio,
+#network,
+#cpu,
+#disk,
+#memory,
+#battery {
+    margin-right: 20px;
+}

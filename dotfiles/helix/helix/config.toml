@@ -1,9 +1,10 @@
-theme = "doom_acario_dark"
+theme = "doom_acario_dark_transparent"
 
 [editor]
 rulers = [100]
-idle-timeout = 0
-completion-trigger-len = 1
+mouse = true
+idle-timeout = 200
+completion-trigger-len = 0
 
 [editor.cursor-shape]
 insert = "bar"
