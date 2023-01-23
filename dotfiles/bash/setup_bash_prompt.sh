@@ -1,29 +1,4 @@
-# Update the PATH to include our custom binaries.
-function add_path {
-  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]
-  then
-    PATH+=:$1
-  fi
-}
-
-add_path ~/.local/bin
-
-# Add cargo-specific binaries to the PATH.
-source ~/.cargo/env
-
-# Setup aliases.
-alias hx=helix
-alias nv=nvim
-alias e=exa
-
-# Commands that I don't want to avoid using.
-function avoid_command {
-  echo -e "\e[31muse '\e[33m$1\e[31m' instead"
-}
-
-alias ls="avoid_command exa"
-alias grep="avoid_command rg"
-alias find="avoid_command fd"
+#!/bin/bash
 
 # Setup the custom prompt.
 function bash_prompt {
