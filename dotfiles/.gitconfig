@@ -1,0 +1,12 @@
+[user]
+	email = nils.mathieu.contact@gmail.com
+	name = Nils Mathieu
+	signingkey = 771F3615A701D9DC
+[commit]
+	gpgsign = true
+[alias]
+	lg = log --oneline --graph
+	a = add -A
+	c = commit -m
+[init]
+	defaultBranch = main
