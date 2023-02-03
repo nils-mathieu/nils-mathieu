@@ -1,6 +1,6 @@
 [[language]]
 name = "rust"
-config = { imports.granularity.group = "item", checkOnSave.command = "clippy" }
+config = { imports.granularity.group = "module", checkOnSave.command = "clippy" }
 
 [[language]]
 name = "c"
@@ -15,3 +15,19 @@ indent = { tab-width = 4, unit = "    " }
 [[language]]
 name = "typescript"
 indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "tsx"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "javascript"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "html"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "css"
+language-server = { command = "css-languageserver", args = [ "--stdio" ] }
