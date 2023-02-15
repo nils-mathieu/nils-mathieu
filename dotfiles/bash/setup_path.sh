@@ -11,4 +11,7 @@ function add_path {
 add_path ~/.local/bin
 
 # Add cargo-specific binaries to the PATH.
-source ~/.cargo/env
+if [ -f ~/.cargo/env ]
+then
+  source ~/.cargo/env
+fi

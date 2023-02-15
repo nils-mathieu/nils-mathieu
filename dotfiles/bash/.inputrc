@@ -1,0 +1,10 @@
+$if Bash
+	"\e[A": history-search-backward
+	"\a[B": history-search-forward
+
+	set history-size 1000
+	set colored-stats on
+	set completion-ignore-case on
+	set show-all-if-ambiguous on
+	set visible-stats on
+$endif
